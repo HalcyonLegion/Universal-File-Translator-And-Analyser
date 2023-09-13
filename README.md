@@ -20,4 +20,4 @@ Go to the application on the local server (flask is traditionally served on http
 
 Paste your Document into the file selector and then tell the AI what you'd like to do with it, it can be literally anything it's quite versatile.
 
-For example I had it translate a Menu PDF into HTML code, I also asked it to translate a PDF from Swedish to English.
+For example I had it translate a Menu PDF into HTML code, I also asked it to translate a PDF from Swedish to English. It was originally used for Menu analysis so there's some leftover references to that in the code!

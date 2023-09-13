@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Restaurant Menu Analyser</title>
+  <title>Universal Document Analyser</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container">
-    <h1>Restaurant Menu Analyser</h1>
+    <h1>Universal Document Analyser</h1>
     <form id="menu_form" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="menu_image">Upload a menu PDF:</label>
+        <label for="menu_image">Upload any Document or PDF!:</label>
         <input type="file" class="form-control-file" id="menu_image" name="menu_image" accept="application/pdf" required>
       </div>
       <div class="form-group">
         <label for="prompt_input">Enter your prompt:</label>
         <textarea class="form-control" id="prompt_input" name="prompt" rows="3" placeholder="e.g., Please optimize the menu categories for better clarity"></textarea>
       </div>
-      <button id="submit_btn" type="submit" class="btn btn-primary">Analyze Menu</button>
+      <button id="submit_btn" type="submit" class="btn btn-primary">Analyse</button>
     </form>
     <div id="analysis_results"></div>
   </div>
