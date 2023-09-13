@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Menu Analyser</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Restaurant Menu Analyser</h1>
+    <form id="menu_form" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="menu_image">Upload a menu PDF:</label>
+        <input type="file" class="form-control-file" id="menu_image" name="menu_image" accept="application/pdf" required>
+      </div>
+      <div class="form-group">
+        <label for="prompt_input">Enter your prompt:</label>
+        <textarea class="form-control" id="prompt_input" name="prompt" rows="3" placeholder="e.g., Please optimize the menu categories for better clarity"></textarea>
+      </div>
+      <button id="submit_btn" type="submit" class="btn btn-primary">Analyze Menu</button>
+    </form>
+    <div id="analysis_results"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#menu_form').on('submit', function (event) {
+      event.preventDefault();
+
+      var formData = new FormData();
+      formData.append('menu_image', $('input[type=file]').prop('files')[0]);
+      formData.append('prompt', $('#prompt_input').val());
+
+      $.ajax({
+        url: '/analyze_menu',
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          $("#analysis_results").html("");
+          for (const [key, value] of Object.entries(data)) {
+            $("#analysis_results").append(`<h3>${key}</h3><p>${value}</p>`);
+          }
+        },
+        error: function (err) {
+          console.error(err);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
